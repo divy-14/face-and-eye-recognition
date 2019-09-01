@@ -25,11 +25,11 @@ def detect(gray, frame):
         eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 20)
         for (ex, ey, ew, eh) in eyes:
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
-            
-        smiles = smile_cascade.detectMultiScale(roi_gray, 1.7, 35)
+
+
+        smiles = smile_cascade.detectMultiScale(roi_gray, 1.7, 33)
         for (sx, sy, sw, sh) in smiles:
-            cv2.rectangle(roi_color, (sx, sy), (sx+sw, sy+sh), (0, 0, 255), 2)    
-    
+            cv2.rectangle(roi_color, (sx, sy), (sx+sw, sy+sh), (0, 0, 255), 2)
     return frame
 
 # Doing some Face Recognition with the webcam
@@ -43,4 +43,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 video_capture.release()
+
 cv2.destroyAllWindows()
+
